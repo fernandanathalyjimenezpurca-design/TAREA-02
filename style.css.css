@@ -1,0 +1,785 @@
+/* ================================================= */
+/* CONFIGURACIÓN GENERAL */
+/* ================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #a7193f;
+    color: #222222;
+}
+
+
+/* ================================================= */
+/* MENÚ */
+/* ================================================= */
+
+header {
+    background-color: white;
+    padding: 22px 6%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #111111;
+}
+
+
+nav a {
+    color: #222222;
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #a7193f;
+}
+
+
+/* ================================================= */
+/* INICIO */
+/* ================================================= */
+
+.inicio {
+    text-align: center;
+    padding: 75px 20px 55px;
+    color: white;
+}
+
+.inicio h1 {
+    font-size: 32px;
+    margin: 0 0 15px;
+}
+
+.inicio p {
+    font-size: 16px;
+    margin: 0;
+    color: #f5dce4;
+}
+
+
+/* ================================================= */
+/* CATÁLOGO */
+/* ================================================= */
+
+.catalogo {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.catalogo > h2 {
+    text-align: center;
+    color: white;
+    font-size: 22px;
+    margin-bottom: 40px;
+}
+
+
+/* ================================================= */
+/* PRODUCTOS */
+/* ================================================= */
+
+.productos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+
+/* ================================================= */
+/* TARJETA */
+/* ================================================= */
+
+.producto {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+
+    box-shadow:
+        0 3px 10px rgba(0, 0, 0, 0.15);
+
+    transition: 0.3s;
+}
+
+.producto:hover {
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.25);
+}
+
+
+/* ================================================= */
+/* IMAGEN DEL CATÁLOGO */
+/* ================================================= */
+
+.imagen-principal {
+    display: block;
+    cursor: pointer;
+}
+
+.imagen-principal img {
+    width: 100%;
+    height: 180px;
+
+    object-fit: contain;
+
+    margin-bottom: 15px;
+
+    transition: 0.3s;
+}
+
+.imagen-principal img:hover {
+    opacity: 0.8;
+    transform: scale(1.03);
+}
+
+
+/* ================================================= */
+/* NOMBRE */
+/* ================================================= */
+
+.producto h3 {
+    color: #111111;
+    font-size: 15px;
+    margin: 10px 0;
+}
+
+
+/* ================================================= */
+/* DESCRIPCIÓN */
+/* ================================================= */
+
+.producto p {
+    color: #888888;
+    font-size: 14px;
+    line-height: 1.5;
+    min-height: 63px;
+}
+
+
+/* ================================================= */
+/* PRECIO */
+/* ================================================= */
+
+.precio {
+    background-color: #f1f1f1;
+    color: #111111;
+
+    padding: 12px;
+
+    border-radius: 6px;
+
+    font-weight: bold;
+
+    margin-top: 15px;
+}
+
+
+/* ================================================= */
+/* CHECKBOX DEL PRODUCTO */
+/* ================================================= */
+
+.producto > input[type="checkbox"] {
+    display: none;
+}
+
+
+/* ================================================= */
+/* VENTANA DEL PRODUCTO */
+/* ================================================= */
+
+.detalle-producto {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    background-color: white;
+
+    z-index: 1000;
+
+    overflow-y: auto;
+
+    padding: 40px;
+
+    display: none;
+}
+
+
+.producto > input[type="checkbox"]:checked
+~ .detalle-producto {
+    display: block;
+}
+
+
+/* ================================================= */
+/* CERRAR */
+/* ================================================= */
+
+.cerrar {
+    position: absolute;
+
+    top: 20px;
+    right: 35px;
+
+    font-size: 38px;
+
+    font-weight: bold;
+
+    color: #111111;
+
+    cursor: pointer;
+
+    line-height: 1;
+}
+
+.cerrar:hover {
+    color: #a7193f;
+}
+
+
+/* ================================================= */
+/* TÍTULO DEL PRODUCTO */
+/* ================================================= */
+
+.detalle-producto > h2 {
+    text-align: center;
+
+    color: #a7193f;
+
+    font-size: 30px;
+
+    margin-top: 10px;
+
+    margin-bottom: 40px;
+}
+
+
+/* ================================================= */
+/* CONTENIDO */
+/* ================================================= */
+
+.contenido-detalle {
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 50px;
+}
+
+
+/* ================================================= */
+/* GALERÍA */
+/* ================================================= */
+
+.galeria {
+    width: 55%;
+    flex-shrink: 0;
+}
+
+
+/* ================================================= */
+/* OCULTAR COMPLETAMENTE LOS RADIO */
+/* ================================================= */
+
+/*
+   ESTO ES LO QUE QUITA
+   LOS CUADRITOS.
+*/
+
+.galeria input[type="radio"] {
+    display: none !important;
+
+    appearance: none;
+
+    -webkit-appearance: none;
+
+    width: 0;
+    height: 0;
+
+    margin: 0;
+    padding: 0;
+
+    position: absolute;
+
+    opacity: 0;
+
+    visibility: hidden;
+}
+
+
+/* ================================================= */
+/* IMAGEN GRANDE */
+/* ================================================= */
+
+.imagen-grande {
+    width: 100%;
+
+    height: 430px;
+
+    border: 1px solid #eeeeee;
+
+    border-radius: 10px;
+
+    background-color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+
+/* TODAS LAS IMÁGENES OCULTAS */
+
+.imagen-grande img {
+    display: none;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: contain;
+
+    padding: 10px;
+}
+
+
+/* ================================================= */
+/* PRIMERA IMAGEN */
+/* ================================================= */
+
+.galeria input:nth-of-type(1):checked
+~ .imagen-grande .foto1 {
+    display: block;
+}
+
+
+/* ================================================= */
+/* SEGUNDA IMAGEN */
+/* ================================================= */
+
+.galeria input:nth-of-type(2):checked
+~ .imagen-grande .foto2 {
+    display: block;
+}
+
+
+/* ================================================= */
+/* TERCERA IMAGEN */
+/* ================================================= */
+
+.galeria input:nth-of-type(3):checked
+~ .imagen-grande .foto3 {
+    display: block;
+}
+
+
+/* ================================================= */
+/* CUARTA IMAGEN */
+/* ================================================= */
+
+.galeria input:nth-of-type(4):checked
+~ .imagen-grande .foto4 {
+    display: block;
+}
+
+
+/* ================================================= */
+/* MINIATURAS */
+/* ================================================= */
+
+.miniaturas {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-top: 15px;
+}
+
+
+/* ================================================= */
+/* MINIATURA */
+/* ================================================= */
+
+.miniaturas label {
+    width: 100px;
+    height: 90px;
+
+    border: 2px solid #eeeeee;
+
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    background-color: white;
+
+    transition: 0.3s;
+}
+
+
+.miniaturas label:hover {
+    border-color: #a7193f;
+
+    transform: scale(1.05);
+}
+
+
+.miniaturas img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    padding: 5px;
+}
+
+
+/* ================================================= */
+/* INFORMACIÓN */
+/* ================================================= */
+
+.informacion-detalle {
+    width: 45%;
+
+    padding: 20px;
+
+    text-align: left;
+}
+
+
+.informacion-detalle h3 {
+    color: #111111;
+
+    font-size: 24px;
+
+    margin-top: 0;
+
+    margin-bottom: 20px;
+}
+
+
+.informacion-detalle p {
+    color: #555555;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    margin-bottom: 20px;
+}
+
+
+/* ================================================= */
+/* PRECIO DETALLE */
+/* ================================================= */
+
+.precio-detalle {
+    width: 100%;
+
+    margin: 30px 0 20px;
+
+    padding: 15px;
+
+    background-color: #f1f1f1;
+
+    color: #111111;
+
+    text-align: center;
+
+    border-radius: 6px;
+
+    font-size: 20px;
+
+    font-weight: bold;
+}
+
+
+/* ================================================= */
+/* BOTÓN CARRITO */
+/* ================================================= */
+
+.carrito {
+    display: block;
+
+    width: 250px;
+
+    margin: 20px 0;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background-color: #a7193f;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+.carrito:hover {
+    background-color: #111111;
+}
+
+
+/* ================================================= */
+/* NOSOTROS */
+/* ================================================= */
+
+.nosotros {
+    max-width: 900px;
+
+    margin: 60px auto;
+
+    padding: 40px 30px;
+
+    background-color: white;
+
+    border-radius: 12px;
+
+    text-align: center;
+}
+
+
+.nosotros h2 {
+    color: #a7193f;
+}
+
+
+.nosotros p {
+    color: #555555;
+
+    line-height: 1.7;
+}
+
+
+/* ================================================= */
+/* CONTACTO */
+/* ================================================= */
+
+.contacto {
+    background-color: white;
+
+    text-align: center;
+
+    padding: 45px 20px;
+
+    margin-top: 40px;
+}
+
+
+.contacto h2 {
+    color: #a7193f;
+}
+
+
+.contacto p {
+    color: #555555;
+}
+
+
+/* ================================================= */
+/* PIE DE PÁGINA */
+/* ================================================= */
+
+footer {
+    background-color: #111111;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 20px;
+}
+
+
+/* ================================================= */
+/* TABLET */
+/* ================================================= */
+
+@media screen and (max-width: 1000px) {
+
+    .productos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* ================================================= */
+/* TABLET - DETALLE */
+/* ================================================= */
+
+@media screen and (max-width: 800px) {
+
+    .contenido-detalle {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .galeria {
+        width: 100%;
+    }
+
+    .informacion-detalle {
+        width: 100%;
+        text-align: center;
+    }
+
+    .carrito {
+        margin: 20px auto;
+    }
+
+}
+
+
+/* ================================================= */
+/* CELULAR */
+/* ================================================= */
+
+@media screen and (max-width: 600px) {
+
+    header {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+
+    nav a {
+        margin: 0 8px;
+        font-size: 13px;
+    }
+
+
+    .inicio {
+        padding: 55px 15px 40px;
+    }
+
+
+    .inicio h1 {
+        font-size: 26px;
+    }
+
+
+    .productos {
+        grid-template-columns: 1fr;
+    }
+
+
+    .detalle-producto {
+        padding: 25px 15px;
+    }
+
+
+    .detalle-producto > h2 {
+        font-size: 22px;
+
+        margin-top: 35px;
+
+        margin-bottom: 25px;
+    }
+
+
+    /* IMAGEN GRANDE */
+
+    .imagen-grande {
+        height: 300px;
+    }
+
+
+    /* MINIATURAS */
+
+    .miniaturas {
+        gap: 8px;
+    }
+
+
+    .miniaturas label {
+        width: 70px;
+        height: 65px;
+    }
+
+
+    .informacion-detalle {
+        width: 100%;
+
+        padding: 10px;
+
+        text-align: center;
+    }
+
+
+    .informacion-detalle h3 {
+        font-size: 21px;
+    }
+
+
+    .informacion-detalle p {
+        font-size: 15px;
+    }
+
+
+    .precio-detalle {
+        width: 100%;
+    }
+
+
+    .carrito {
+        width: 100%;
+
+        max-width: 280px;
+
+        margin: 20px auto;
+    }
+
+
+    .cerrar {
+        top: 15px;
+
+        right: 20px;
+
+        font-size: 30px;
+    }
+
+}
